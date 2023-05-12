@@ -172,7 +172,6 @@ $(document).on("click", ".btn_opnameadd", function () {
 
 $(document).on("click",".btn_add", function () {
 
-
     // let selb = $("select[name=option_required] option:selected").val();
     // let sela = document.querySelectorAll(".required:selected")
     let opGroup = document.querySelectorAll(".op_group");
