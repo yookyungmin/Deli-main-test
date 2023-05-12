@@ -180,7 +180,6 @@ $(document).on("click", ".btn_opnameadd", function () {
 
 
 
-
 $(document).on("click",".btn_add", function () {
 
 

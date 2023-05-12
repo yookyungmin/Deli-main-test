@@ -106,7 +106,6 @@ public class OrderHistoryController {
         return "redirect:/basket";
     }
 
-
     @ResponseBody
     @RequestMapping("reviewChk")
     public boolean isExistReview(int order_seq) {
