@@ -275,8 +275,6 @@ $("#menu_img").on("change", function () {
     }
 });
 
-
-
 $("#menu_group").on("keyup", function (){
     $(".menu_group_msg").css("color", "#001a41")
     $(".menu_group_msg").html("메뉴그룹명끼리 묶을땐 메뉴그룹 이름을 입력해주세요")
