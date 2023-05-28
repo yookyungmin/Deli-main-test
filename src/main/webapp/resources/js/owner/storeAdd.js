@@ -318,7 +318,6 @@ $(".bs_open_timeAll").on("change", function () {
 
 })
 
-
 $(".bs_close_timeAll").on("change", function () {
 
     let close = $(".bs_close_timeAll").val()
