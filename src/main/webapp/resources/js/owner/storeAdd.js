@@ -312,7 +312,6 @@ $(".bs_openAll").on("change", function () {
 
 $(".bs_open_timeAll").on("change", function () {
 
-
     let open = $(".bs_open_timeAll").val()
     $(".bs_open_time").val(open)
 
