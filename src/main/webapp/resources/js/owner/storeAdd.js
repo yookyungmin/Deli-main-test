@@ -190,8 +190,6 @@ $("#add").on("click", function () {
 
         $("#frm").submit();
     }
-
-
 })
 
 //이미지미리보기
