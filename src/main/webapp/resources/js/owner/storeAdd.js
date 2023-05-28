@@ -107,7 +107,6 @@ $(".bs").on("change", function () {
     }
 })
 
-
 $("#add").on("click", function () {
 
 
