@@ -28,15 +28,6 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-        
-    - name: Setup Oracle Database
-      uses: sath89/oracle-xe-11g-action@v1
-      with:
-       character_set_server: 'AL32UTF8'
-       oracle_sid: 'xe'
-       oracle_home: 'jdbc:oracle:thin:@localhost:1521:xe'
-       oracle_base: 'deli'
-       oracle_password: 'deli'
        
     - name: Build with Gradle
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
