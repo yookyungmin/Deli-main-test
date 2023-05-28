@@ -30,6 +30,4 @@ public class AdminMainController {
         model.addAttribute("salesToday", selectTodaySales);
         return "admin/adminMain";
     }
-
-
 }
