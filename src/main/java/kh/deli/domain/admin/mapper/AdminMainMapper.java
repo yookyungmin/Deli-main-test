@@ -13,5 +13,4 @@ public interface AdminMainMapper {
     List<AdminMainDTO> selectAllSalesList();
 
     AdminMainDTO selectTodaySales();
-
 }

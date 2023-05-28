@@ -12,10 +12,7 @@ function menuSubmitCheck() {
     if ($("#menu_group").val() == "") {
 
         $("#menu_group").focus();
-
-
     }
-
     else if($("input[name=menu_sold_out]:radio:checked").length<1){
         Swal.fire({title: "체크 필수", icon: "error", text: "주문 가능 여부를 체크 해주세요"});
         return false;
@@ -143,10 +140,6 @@ $(document).on("click", ".btn_option_add", function () {
 
 $(document).on("click", ".btn_opnameadd", function () {
 
-
-
-
-
     let opAddBox = $("<div class='optionName_div_add input-group' style='margin-top: 5px'>");
 
     let delBtn = $("<button type='button'>")
@@ -177,11 +170,7 @@ $(document).on("click", ".btn_opnameadd", function () {
 
 })
 
-
-
-
 $(document).on("click",".btn_add", function () {
-
 
     // let selb = $("select[name=option_required] option:selected").val();
     // let sela = document.querySelectorAll(".required:selected")
@@ -190,7 +179,6 @@ $(document).on("click",".btn_add", function () {
     let multiPle = document.querySelectorAll(".op_multi");
     //중첩for문돌리예정
     //let opgroup = $(".opgroup").val();
-
 
     let menuSeq;
 
@@ -208,11 +196,6 @@ $(document).on("click",".btn_add", function () {
         }
 
     }
-
-
-
-
-
 
     //menu seq를 메뉴테이블, 메뉴 옵션테이블에 각각 추가하기 위한 조치
     $.ajax({
@@ -291,8 +274,6 @@ $("#menu_img").on("change", function () {
         fileToBase64(document.getElementById("menu_img").files[0]);
     }
 });
-
-
 
 $("#menu_group").on("keyup", function (){
     $(".menu_group_msg").css("color", "#001a41")
