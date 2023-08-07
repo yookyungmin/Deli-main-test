@@ -184,6 +184,39 @@ $("#add").on("click", function () {
     let bsnsData = JSON.parse($("#bsns_data").val());
 
 
+/*
+$("#add").on("click", function() {
+  // Clear open and close time if the day is marked as "휴무일"
+  for (let i = 0; i < 7; i++) {
+    if ($("select[name=select_bs]").eq(i).val() === "휴무일") {
+      $(".bs_open_time").eq(i).val("");
+      $(".bs_close_time").eq(i).val("");
+    }
+  }
+
+
+
+
+  // Extract business hours data into a more structured object
+  const bsns_div = $(".bsns_div");
+  const daysOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+  const bs_day = {};
+  for (let i = 1; i <= 7; i++) {
+    bs_day[daysOfWeek[i - 1]] = {
+      open: $(bsns_div[i]).find(".bs_open").val(),
+      open_time: $(bsns_div[i]).find(".bs_open_time").val(),
+      close_time: $(bsns_div[i]).find(".bs_close_time").val()
+    };
+  }
+
+  // Update the value of #bsns_data input field with the JSON data
+  $("#bsns_data").val(JSON.stringify(bs_day));
+  const bsnsData = JSON.parse($("#bsns_data").val());
+
+  코드리팩토링
+*/
+
+
     $("#frm").attr("action", "/owner/store/add/storeAdd")
     if (storeSubmitCheck()) {
 
@@ -266,8 +299,6 @@ $(document).on("click", ".postsearch", function () {
 
 
 $(".close_day").on("keyup", function () {
-
-
     $(".close_day_msg").css("color", "#001a41")
     $(".close_day_msg").css("font-size", "15px")
     $(".close_day_msg").html("ex)연중 무휴, 목, 금은 쉽니다")

@@ -7,100 +7,150 @@ function validNum() {
 
 
 //메뉴 유효성
+//function menuSubmitCheck() {
+//
+//    if ($("#menu_group").val() == "") {
+//
+//        $("#menu_group").focus();
+//    }
+//    else if($("input[name=menu_sold_out]:radio:checked").length<1){
+//        Swal.fire({title: "체크 필수", icon: "error", text: "주문 가능 여부를 체크 해주세요"});
+//        return false;
+//    }
+//    else if($("input[name=menu_display]:radio:checked").length<1){
+//        Swal.fire({title: "체크 필수", icon: "error", text: "메뉴 공개 여부를 체크해주세요"});
+//        return false;
+//    }
+//
+//    else if ($("#menu_name").val() == "") {
+//
+//        $("#menu_name").focus();
+//    }
+//    else if ($("#menu_price").val() == "") {
+//
+//        $("#menu_price").focus();
+//    }else if ($("#menu_price").val() <=100) {
+//        alert("메뉴100원이상입력")
+//        $("#menu_price").focus();
+//
+//    }
+//    else if ($("#menu_img").val()=="") {
+//
+//
+//    }
+//    else if ($("#menu_intro").val() == "") {
+//
+//        $("#menu_intro").focus();
+//    }
+//
+//    else {
+//        // Swal.fire({title: "등록 성공", icon: "success", text: "등록이 완료되었습니다"});
+//        return true;
+//    }
+//    // Swal.fire({title: "등록 실패", icon: "error", text: "등록에 실패하였습니다. 관리자에게 문의해주세요"});
+//    return false;
+//}
+
+//코드 리팩토링 메뉴 유효성
 function menuSubmitCheck() {
+    const menuGroup = $("#menu_group").val();
+    const soldOutChecked = $("input[name=menu_sold_out]:radio:checked").length;
+    const displayChecked = $("input[name=menu_display]:radio:checked").length;
+    const menuName = $("#menu_name").val();
+    const menuPrice = $("#menu_price").val();
+    const menuImg = $("#menu_img").val();
+    const menuIntro = $("#menu_intro").val();
 
-    if ($("#menu_group").val() == "") {
-
+    if (menuGroup === "") {
         $("#menu_group").focus();
-    }
-    else if($("input[name=menu_sold_out]:radio:checked").length<1){
-        Swal.fire({title: "체크 필수", icon: "error", text: "주문 가능 여부를 체크 해주세요"});
+    } else if (soldOutChecked < 1) {
+        Swal.fire({ title: "체크 필수", icon: "error", text: "주문 가능 여부를 체크 해주세요" });
         return false;
-    }
-    else if($("input[name=menu_display]:radio:checked").length<1){
-        Swal.fire({title: "체크 필수", icon: "error", text: "메뉴 공개 여부를 체크해주세요"});
+    } else if (displayChecked < 1) {
+        Swal.fire({ title: "체크 필수", icon: "error", text: "메뉴 공개 여부를 체크해주세요" });
         return false;
-    }
-
-    else if ($("#menu_name").val() == "") {
-
+    } else if (menuName === "") {
         $("#menu_name").focus();
-    }
-    else if ($("#menu_price").val() == "") {
-
+    } else if (menuPrice === "" || Number(menuPrice) <= 100) {
+        alert("메뉴 100원 이상 입력");
         $("#menu_price").focus();
-    }else if ($("#menu_price").val() <=100) {
-        alert("메뉴100원이상입력")
-        $("#menu_price").focus();
-
-    }
-    else if ($("#menu_img").val()=="") {
-
-
-    }
-    else if ($("#menu_intro").val() == "") {
-
+    } else if (menuImg === "") {
+        // Handle menu image validation if needed
+    } else if (menuIntro === "") {
         $("#menu_intro").focus();
-    }
-
-    else {
-        // Swal.fire({title: "등록 성공", icon: "success", text: "등록이 완료되었습니다"});
+    } else {
+        // Successfully validated
         return true;
     }
-    // Swal.fire({title: "등록 실패", icon: "error", text: "등록에 실패하였습니다. 관리자에게 문의해주세요"});
     return false;
 }
-//메뉴옵션 유효성
+
+
+////메뉴옵션 유효성
+//function menuOptionCheck2(){
+//
+//    let opGroup = document.querySelectorAll(".op_group");
+//    let valid =true;
+//    for(let i=0; i<opGroup.length; i++ ) { //중첩 for문 사용
+//        let opName = $(document.querySelectorAll(".group")[i]).find(".op_name")
+//        let opPrice = $(document.querySelectorAll(".group")[i]).find(".op_price")
+//        //기본 opname 길이 2
+//        let opGroupval= opGroup[i].value;
+//        for (let j = 0; j < opName.length; j++) {
+//
+//            let opNameVal= opName[j].value;
+//            let opPriceVal = opPrice[j].value;
+//
+//            if(opPriceVal==""){
+//                // alert("가격값없으")
+//                valid=false
+//            }
+//            else if(opNameVal==""){
+//                // alert("이름값없음")
+//                valid=false
+//            }else if(opGroupval==""){
+//                // alert("그룹이름값 없으")
+//                valid=false
+//            }
+//        }
+//    }
+//    if(!valid){
+//        // Swal.fire({title: "유효성 통과실패", icon: "error", text: "메뉴옵션 유효성 검사 실패"});
+//        return false
+//    }else{
+//        //  Swal.fire({title: "유효성 통과성공", icon: "success", text: "메뉴옵션 유효성 검사 통과"});
+//        return valid;
+//    }
+//}
+
+//메뉴옵션체크2 유효성
 function menuOptionCheck2(){
+    let valid = true;
+    const opGroups = document.querySelectorAll(".op_group");
 
-    let opGroup = document.querySelectorAll(".op_group");
-    let valid =true;
-    for(let i=0; i<opGroup.length; i++ ) { //중첩 for문 사용
-        let opName = $(document.querySelectorAll(".group")[i]).find(".op_name")
-        let opPrice = $(document.querySelectorAll(".group")[i]).find(".op_price")
-        //기본 opname 길이 2
-        let opGroupval= opGroup[i].value;
-        for (let j = 0; j < opName.length; j++) {
+    for(let i = 0; i<opGroup.length; i++){
+        const opGroupVal = opGroups[i].value;
+        const opNames = $(document.querySelectorAll(".group")[i]).find(".op_name");
+        const opPrices = $(document.querySelectorAll(".group")[i]).find(".op_price");
 
-            let opNameVal= opName[j].value;
-            let opPriceVal = opPrice[j].value;
+        for(let j = 0; j < opNames.length; j++){
+            const opNameVal = opNames[j].value;
+            const opPriceVal = opPrices[j].value;
 
-            if(opPriceVal==""){
-                // alert("가격값없으")
-                valid=false
-            }
-            else if(opNameVal==""){
-                // alert("이름값없음")
-                valid=false
-            }else if(opGroupval==""){
-                // alert("그룹이름값 없으")
-                valid=false
+            if(opPriceVal ==+ "" || opNameVal === "" || opGroupVal === ""){
+                valid = false;
+                break;
             }
         }
     }
     if(!valid){
-        // Swal.fire({title: "유효성 통과실패", icon: "error", text: "메뉴옵션 유효성 검사 실패"});
-        return false
+        return false;
     }else{
-        //  Swal.fire({title: "유효성 통과성공", icon: "success", text: "메뉴옵션 유효성 검사 통과"});
-        return valid;
+        return true;
     }
 }
 
 
-
-// var section1s = document.getElementsByClassName("section1");
-// var section2s = document.getElementsByClassName("section2");
-//
-// for( var i = 0; i < section1s.length; i++ ){
-//     var section1 = section1s.item(i);
-//     section1.style.border = "1px solid #0000ff";
-// }
-//
-// for( var i = 0; i < section2s.length; i++ ){
-//     var section2 = section2s.item(i);
-//     section2.style.border = "1px solid #ff0000"
-// }
 
 //옵션추가
 $(document).on("click", ".btn_option_add", function () {

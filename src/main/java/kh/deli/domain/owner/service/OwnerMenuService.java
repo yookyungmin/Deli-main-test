@@ -53,9 +53,6 @@ public class OwnerMenuService {
         }
           menuDTO.setMenu_seq(menu_seq); //메뉴seq
         ownerMenuMapper.insertMenu(menuDTO);
-
-
-
     }
 
 
