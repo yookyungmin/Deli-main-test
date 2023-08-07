@@ -16,8 +16,6 @@ $(".reviewChk").on("click", function (){
         }
 
     })
-
-
 })
 
 
